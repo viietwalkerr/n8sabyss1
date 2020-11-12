@@ -21,17 +21,20 @@ include 'REGISTRATION/server.php';
 
     <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
     <link rel="stylesheet" href="CSS/player.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
     <script type="text/javascript" src="JAVASCRIPT/myscripts.js"></script>
 
 </head>
 <body onload="load()">
+  
 <header>
-    <button onclick="topFunction()" id="backToTopBtn" title="Go to top"><span>Back to Top</span></button>
-    <!--
-    <div id="header">
-
-    </div>
-  -->
+    <button onclick="topFunction()" id="backToTopBtn" class="neonButton" title="Go to top">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>Back to Top</button>
+    
+      
 
   <nav class="topnav">
       <!--
@@ -41,7 +44,6 @@ include 'REGISTRATION/server.php';
       <li><a href="index.php">Home</a></li>
       <li><a href="about.php">About</a></li>
       <li><a href="quotes.php">Quotes</a></li>
-      <li><a href="theabyss.php">The Abyss</a></li>
     </ul>
 
     <!--
@@ -93,7 +95,6 @@ include 'REGISTRATION/server.php';
     <a href="index.php">Home</a>
     <a href="about.php">About</a>
     <a href="quotes.php">Quotes</a>
-    <a href="theabyss.php">The Abyss</a>
     <?php
       if (isset($_SESSION['username'])) : ?>
       <a href="profile.php">Profile</a>
@@ -105,6 +106,7 @@ include 'REGISTRATION/server.php';
     <br><br>
     <br><br><br>
 
+    <!--
     <div class="container">
       <div class="box"></div>
       <img src="./ASSETS/images/smoking panda.jpg" id="thumbnail" style="width:150px; height:150px;" />
@@ -135,17 +137,17 @@ include 'REGISTRATION/server.php';
 
       <div class="currentTime"></div>
       <div class="durationTime"></div>
-    </div> <!-- end div container -->
+    </div> --> <!-- end div container -->
 
-    <script src="JAVASCRIPT/player.js"></script>
-
+    <!--<script src="JAVASCRIPT/player.js"></script> -->
+    <div class="lowerSideNav">
     <label class="switch" placeholder="Darkmode">
       <!-- <input id="checkboxDarkmode" type="checkbox" name="checkboxDarkmode" onclick="darkmodeFunction()">
       -->
       <input id="checkbox" type="checkbox" name="checkbox" onclick="darkmodeFunction(); save()">
         <span class="slider round"></span>
     </label>
-
+    <div>
   </div> <!-- end of sidenav -->
 
 

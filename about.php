@@ -9,7 +9,6 @@ session_start();
   
       <h2>About N8's Abyss</h2>
     
-    <br>
     <main>
    <section>
     <p>
@@ -17,10 +16,10 @@ session_start();
     So you can go and check out the ones that I added to this website.<br>
     </p>
       
-    <input type="button" class="button" value="Get Started" onclick="quotes.php">
-    <br><br>
-    <a href="quotes.php"><span>Quotes</span></a>
+    <a class="rainbowButton" href="quotes.php"><span>Quotes</span></a>
     <br><br><br>
+    
+    <!--
     <a href="quotes.php">
       <span></span>
       <span></span>
@@ -37,6 +36,22 @@ session_start();
     </script>
 
       <button type="button" class="button" onclick="document.write('Script button test')">Script Button test</button>
+    -->
+    <div class="quoteBox">
+      <div>
+        <div class="box box1">
+          <p>I'm supposed to be the soldier who never blows his composer,
+            even though I hold the weight of the whole world on my shoulers
+            I ain't ever supposed to show it, my crew ain't supposed to know it
+            even if it means going toe to toe with the Benzino, it don't matter
+            I'd never drag him in battles that I can handle, unless I absolutely had to
+            I'm supposed to set an example
+          </p>
+        </div>
+        <div class="bg">
+      </div>
+    </div>
+    <p>Use the switch on the bottom left to activate Darkmode!</p>
     </section> 
   </main> 
   </div> <!-- end div content -->

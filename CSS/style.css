@@ -63,7 +63,7 @@ body.dark-mode
     0 0 120px rgba(255, 255, 255, 1);
 }
 
-.dark-mode p
+.dark-mode p, .dark-mode #skillsList
 {
   color: white;
   filter: blur(0px);
@@ -98,7 +98,7 @@ body.dark-mode
   height: 27px;
   bottom: 10px;
   margin-left: 10px;
-  margin-top: 310%;
+  margin-top: 200px;
 }
 
 
@@ -231,6 +231,7 @@ input:checked + .slider:before {
 
 header nav.topnav 
 {
+  z-index: 1;
   overflow: hidden;
   background-color: #252525;
   border: 1px solid #252525;
@@ -241,7 +242,7 @@ header nav.topnav
   height: 60px;
   width: 100%;
   font-size: 12pt;
-  font-weight: bold;
+  /* font-weight: bold; */
   box-shadow: ;
   display: flex;
   justify-content: space-between;
@@ -336,7 +337,6 @@ header nav.topnav .nav-profile button {
   /* padding: 10px 10px; */
   text-decoration: none;
   font-size: 17px;
-  font-weight: bold;
   margin-top: 15px;
   margin-left: 0px;
   margin-right: 10px;
@@ -422,14 +422,16 @@ header nav.topnav input[type=text] {
 
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #252525;
-  min-width: 160px;
+  padding-left: 10px;
+  padding-right: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
   border-radius: 20px;
   border-style: solid;
   border-width: 1px;
+  right: 0px; /* prevents from going offscreen */
 }
 
 .dropdown-content a {
@@ -588,6 +590,10 @@ header nav.topnav input[type=text] {
   margin-left: 50px;
 }
 
+.lowerSideNav {
+  margin-top: 20px;
+}
+
 .content {
   align-items: center;
   justify-content: center;
@@ -604,9 +610,13 @@ header nav.topnav input[type=text] {
   /* height: 1500px; */
 }
 
+main {
+  padding-top: 20px;
+  z-index: 4;
+}
 
 /* rainbow button */
-main a {
+a.rainbowButton {
   display: inline-flex;
   position: relative;
     width: 105px;
@@ -625,7 +635,7 @@ main a {
 
 }
 
-main a::before
+a.rainbowButton::before
 {
     content:'';
     position: absolute;
@@ -641,7 +651,7 @@ main a::before
     animation: animate 20s linear infinite;
 }
 
-main a::after
+a.rainbowButton::after
 {
     content:'';
     position: absolute;
@@ -659,8 +669,8 @@ main a::after
     
 }
 
-main a:hover::before,
-main a:hover::after
+a.rainbowButton:hover::before,
+a.rainbowButton:hover::after
 {
     opacity: 1;
 }
@@ -681,7 +691,7 @@ main a:hover::after
 }
 
 
-main a span
+a.rainbowButton span
 {
   position: absolute;
   
@@ -696,12 +706,12 @@ main a span
   z-index: 3;
 }
 
-main a:hover span
+ a.rainbowButton:hover span
 {
   color: rgba(255, 255, 255, 1);
 }
 
-main a span::before
+a.rainbowButton span::before
 {
     content: '';
     position: absolute;
@@ -713,7 +723,7 @@ main a span::before
 }
 
 /* neon button */
-/* main a {
+a.neonButton {
   display: inline-flex;
   position: relative;
   margin-left: 0px;
@@ -731,7 +741,7 @@ main a span::before
   text-decoration: none;
 }
 
-main a:hover
+a.neonButton:hover
 {
   color: #255784;
   background: #2196f3;
@@ -742,14 +752,14 @@ main a:hover
   transition-delay: 1s;
 }
 
-main a span
+a.neonButton span
 {
   position: absolute;
   display: block;
 
 }
 
-main a span:nth-child(1)
+a.neonButton span:nth-child(1)
 {
   top: 0;
   left: -100%;
@@ -758,13 +768,13 @@ main a span:nth-child(1)
   background: linear-gradient(90deg, transparent, #2196f3);
 }
 
-main a:hover span:nth-child(1)
+a.neonButton:hover span:nth-child(1)
 {
   left: 100%;
   transition: 1s;
 }
 
-main a span:nth-child(3)
+a.neonButton span:nth-child(3)
 {
   bottom: 0;
   right: -100%;
@@ -773,14 +783,14 @@ main a span:nth-child(3)
   background: linear-gradient(270deg, transparent, #2196f3);
 }
 
-main a:hover span:nth-child(3)
+a.neonButton:hover span:nth-child(3)
 {
   right: 100%;
   transition: 1s;
   transition-delay: 0.5s;
 }
 
-main a span:nth-child(2)
+a.neonButton span:nth-child(2)
 {
   top: -100%;
   right: 0;
@@ -789,14 +799,14 @@ main a span:nth-child(2)
   background: linear-gradient(180deg, transparent, #2196f3);
 }
 
-main a:hover span:nth-child(2)
+a.neonButton:hover span:nth-child(2)
 {
   top: 100%;
   transition: 1s;
   transition-delay: 0.25s;
 }
 
-main a span:nth-child(4)
+a.neonButton span:nth-child(4)
 {
   bottom: -100%;
   left: 0;
@@ -805,12 +815,12 @@ main a span:nth-child(4)
   background: linear-gradient(360deg, transparent, #2196f3);
 }
 
-main a:hover span:nth-child(4)
+a.neonButton:hover span:nth-child(4)
 {
   bottom: 100%;
   transition: 1s;
   transition-delay: 0.75s;
-} */
+}
 
 
 /* makes everything blue tinted */
@@ -834,6 +844,7 @@ p
     position: relative;
     margin: 0;
     padding: 0;
+    padding-bottom: 20px;
     width: 100%;
     text-align: ;
     font-size: 6em;
@@ -861,6 +872,7 @@ p
   height: 130px;
   width: 100% - 160px;
   min-width: 600px;
+  min-height: 150px;
 }
 
 #backToTopBtn {
@@ -868,15 +880,34 @@ p
   position: fixed;
   bottom: 20px;
   right: 30px;
+  padding: 15px 30px;
   z-index: 99;
   font-size: 18px;
+  overflow: hidden;
+  transition: 0.2s;
   border: none;
   outline: none;
-  background-color: red;
-  color: white;
+  /* background-color: red; */
+  /* color: white; */
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
+
+  /* display: inline-flex;
+  position: absolute;
+  margin-left: 0px;
+  padding: 15px 30px;
+  color: #2196f3;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 24px;
+  overflow: hidden;
+  transition: 0.2s;
+  justify-content: center;  
+  height: 70px;
+  width: 130px;
+  z-index: 99;
+  text-decoration: none; */
 
   /* position: relative;
   display: inline-block;
@@ -895,16 +926,16 @@ p
 #backToTopBtn:hover {
   /* background-color: #555; */
 
-  color: #255784;
+  color: white;
   background: #2196f3;
   box-shadow: 
   0 0 10px #2196f3,
   0 0 40px #2196f3,
   0 0 80px #2196f3;
-  transition-delay: 0.2s;
+  transition-delay: 1s;
 }
 
-/* #backToTopBtn span
+#backToTopBtn span
 {
   position: absolute;
   display: block;
@@ -972,7 +1003,7 @@ p
   bottom: 100%;
   transition: 1s;
   transition-delay: 0.75s;
-} */
+}
 
 
 .accountScreens {
@@ -1089,7 +1120,6 @@ form textarea#subject{
 }
 
 
-
 #quotes {
   margin-bottom: 50px;
   margin-top: 20px;
@@ -1098,6 +1128,11 @@ form textarea#subject{
 #quotes td, #quotes th {
   border: 1px solid #ddd;
   padding: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 6; /* to use z-index need position */
 }
 
 #quotes tr:nth-child(even){
@@ -1114,8 +1149,8 @@ form textarea#subject{
     0 0 160px #00adff;
 }
 
-#quotes tr:hover {
-  
+#quotes td:hover {
+  transform: scale(1.2);
 }
 
 #quotes th {
@@ -1124,4 +1159,160 @@ form textarea#subject{
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+
+.quoteBox
+{
+  width: 1200px;
+  min-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.quoteBox .box {
+  position: relative;
+  width: 360px;
+  height: 400px;
+  background: #ccc;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 30px;
+  box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.quoteBox .box:hover{
+  box-shadow: -20px 50px 100px rgba(0, 0, 0, 0.5);
+}
+
+.quoteBox .bg 
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.5s;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.quoteBox .box.box1:hover ~ .bg,
+.quoteBox .box.box1:hover
+{
+  opacity: 1;
+  background: linear-gradient(#03A9F4, #E91E63);
+  
+}
+
+.profile-card {
+  width: 400px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.card-header {
+  background: #2c3a47;
+  padding: 60px 40px;
+}
+
+.pic {
+  display: inline-block;
+  padding: 8px;
+  background: linear-gradient(130deg, #74b9ff, #e66767);
+  margin: auto;
+  border-radius: 50%;
+  animation: animated-gradient 2x linear infinite;
+}
+
+@keyframes animated-gradient {
+  25% {
+    background-position: left bottom;
+  }
+  50% {
+    background-position: right bottom;
+  }
+  75% {
+    background-position: right top;
+  }
+  100% {
+    background-position: left top;
+  }
+}
+
+.pic img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  color: #f2f2f2;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.desc {
+  font-size: 18px;
+  color: #e66767;
+}
+
+.sm {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.sm a {
+  color: #f2f2f2;
+  width: 56px;
+  font-size: 22px;
+  transition: linear;
+  text-decoration: none;
+}
+
+.sm a:hover {
+  color: #e66767;
+}
+
+.card-footer {
+  background: #f4f4f4;
+  padding: 60px 10px;
+}
+
+.numbers {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  flex: 1;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #e66767;
+}
+
+.item span {
+  display: block;
+  color: #2c3a47;
+  font-size: 30px;
+}
+
+.border {
+  width: 1px;
+  height: 30px;
+  background: #bbb;
+}
+
+.resetStyles {
+  all: initial;
+  
 }

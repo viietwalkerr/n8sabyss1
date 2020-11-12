@@ -10,13 +10,9 @@ session_start();
 
   <!-- Banner -->
   <div class="content">
-    <div class="inner">
-      <div class="inner flex breadcomb-ctn" >
-        <header>
           <h2>Quotes</h2>
-        </header>
       <!-- block content -->
-
+    <main>
           <table id=quotes>
           <tr>
             <th style=" text-align: center">Quote</th>
@@ -26,14 +22,15 @@ session_start();
           {
             echo
             "<tr>
+
               <td>{$row['quote']}</td>
-            </tr>";
+            
+              </tr>";
           }
           ?>
           </table>
           <!-- end block content -->
-        </div>
-        <input type="button" class="btn btn-primary" value="Get Started">
+        </main>
     </div>
-  </div>
 <?php include 'INCLUDES/footer.php';?>
+

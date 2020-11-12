@@ -33,9 +33,6 @@ session_start();
       	</h3>
   	    <?php endif ?>
 
-
-        <input type="button" class="button" value="Get Started" onclick="document.getElementById('demo').innerHTML = Date()" >
-
         <button type="button" class="button" onclick="document.getElementById('demo').innerHTML = Date()">
           Click me to display Date and Time.</button>
 

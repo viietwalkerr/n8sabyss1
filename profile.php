@@ -9,89 +9,100 @@
 
   include 'INCLUDES/base.php';
 
+  $username = $_SESSION['username'];
+  $query = "SELECT firstname, lastname, email FROM users WHERE username='$username'";
+  $results = mysqli_query($db, $query);
+  $row = mysqli_fetch_assoc($results);
+  $firstname = $row['firstname'];
+  $lastname = $row['lastname'];
+  $email = $row['email'];
+
 ?>
 
   <!-- Banner -->
   <div class="content">
-    <div class="inner">
-      <div class="inner flex breadcomb-ctn" >
-        <header>
-          <h2>Profile</h2>
-        </header>
-
-        <hr>
-
-        <br>
-      </div>
-        <div class="card">
-          <img src="ASSETS/images/smoking panda.jpg" alt="John" style="width:25%" >
-          <h1>
+    <h2>Profile</h2>
+    <main>
+      <div class="profile-card">
+        <div class="card-header">
+          <div class="pic">
+            <img src="ASSETS/images/smoking panda.jpg" alt="John">
+          </div>
+          <div class="name">
           <?php
-            $username = $_SESSION['username'];
-            $query = "SELECT firstname, lastname, email FROM users WHERE username='$username'";
-            $results = mysqli_query($db, $query);
-
-            $row = mysqli_fetch_assoc($results);
-            $firstname = $row['firstname'];
-            $lastname = $row['lastname'];
-            $email = $row['email'];
             echo $row['firstname'] . " " . $row['lastname'];
-
-            // if (mysqli_num_rows($results) == 1)
-            // {
-            //   while ($row = mysqli_fetch_assoc($results))
-            //   {
-            //     $rows[1] = $row;
-            //   }
-            //   echo "hi";
-            //   echo $rows[1]['firstname']." ".$rows[1]['lastname'];
-            // }
-            // else
-            // {
-            //   echo "no output" . $username;
-            // }
-            ?></h1>
-          <p class="title">First test subject, Smokers</p>
-          <p>N8s Smoko Crew</p>
-          <a href="#"><i class="fa fa-dribbble"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <p><button class="button">Contact</button></p>
+          ?>
+          </div>
+          <div class="desc">Developer & Desiger</div>
+          <div class="sm">
+            <a href="#" class=" fab fa-facebook-f"></a>
+            <a href="#" class=" fab fa-twitter"></a>
+            <a href="#" class=" fab fa-github"></a>
+            <a href="#" class=" fab fa-youtube"></a>
+          </div>
         </div>
-
-
-
-        <div class="tab">
-          <button class="tablinks" onclick="openCity(event, 'About')">About</button>
-          <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-          <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+        <div class="card-footer">
+          <div class="numbers">
+            <div class="item">
+              <span>120</span>
+              Posts
+            </div>
+            <div class="item">
+              <span>584</span>
+              Followers
+            </div>
+            <div class="item">
+              <span>423</span>
+              Following
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Tab content -->
-        <div id="About" class="tabcontent">
-          <h3>London</h3>
+      <div class="card">
+        <h1>
           <?php
+            
+            //echo $row['firstname'] . " " . $row['lastname'];
+          ?>
+        </h1>
+        <!-- 
+        <p class="title">First test subject, Smokers</p>
+        <p>N8s Smoko Crew</p> -->
+      </div>
+
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'About')">About</button>
+        <button class="tablinks" onclick="openCity(event, 'Skills')">Skills</button>
+        <button class="tablinks" onclick="openCity(event, 'Contact')">Contact</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="About" class="tabcontent">
+        <h3>User:</h3>
+        <?php
           echo "<p>Username: ". $username;
           echo "<p>Firstname: ".$firstname;
           echo "<p>Lastname: ".$lastname;
           echo "<p>Email: ".$email;
-          ?>
-        </div>
+        ?>
+      </div>
+      <div id="Skills" class="tabcontent">
+        <h3>Skills</h3>
+        <ul id="skillsList">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+        </ul>
+      </div>
+      <div id="Contact" class="tabcontent">
+        <h3>Contact</h3>
+        <p>Phone: N/A</p>
+        <p>Email: N/A</p>
+      </div>
 
-        <div id="Paris" class="tabcontent">
-          <h3>Paris</h3>
-          <p>Paris is the capital of France.</p>
-        </div>
-
-        <div id="Tokyo" class="tabcontent">
-          <h3>Tokyo</h3>
-          <p>Tokyo is the capital of Japan.</p>
-        </div>
-      </div> <!-- end of inner flex -->
-    </div> <!-- ebd of inner -->
+    </main>
   </div> <!-- end of div content -->
-
-
-
-      <?php include 'INCLUDES/footer.php';?>
+    <?php include 'INCLUDES/footer.php';?>
+</body>
