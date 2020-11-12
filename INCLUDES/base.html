@@ -1,0 +1,173 @@
+<!doctype html>
+
+{% load static %}
+
+<?n8s_site_profile_tho_profile_id_4cf8d769_fk_n8s_site_
+
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>N8's Abyss</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="..CSS/" href="style.css">
+    <style>
+
+
+</style>
+
+</head>
+
+<body>
+
+<button onclick="topFunction()" id="backToTopBtn" title="Go to top">Top</button>
+
+
+<div id="mySidenav" class="sidenav">
+    <!--
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    -->
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'quotes' %}">Quotes</a>
+    <a href="{% url 'theabyss' %}">The Abyss</a>
+    <a href="{% url 'profile' %}">Profile</a>
+</div>
+
+<div class="topnav">
+    <!--
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    -->
+    <a class="active" href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'quotes' %}">Quotes</a>
+    <a href="{% url 'theabyss' %}">The Abyss</a>
+
+
+    <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+
+    <div class="nav-profile">
+        {% if user.is_authenticated %}
+        <a href="#" class="notification">
+            <span>Inbox</span>
+            <span class="badge">3</span>
+        </a>
+        <div class="dropdown">
+
+            <button onclick="myFunction()" class="dropbtn">Profile</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="#about">Settings</a>
+                <a href="#contact">Contact</a>
+                <a href="{% url 'auth_logout' %}">Logout</a>
+            </div>
+        </div>
+
+        {% else %}
+
+        <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Profile</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="{% url 'auth_login' %}">Login</a>
+                <a href="{% url 'registration_register' %}">Register</a>
+                <a href="#contact">Contact</a>
+            </div>
+        <a href="{% url 'auth_login' %}">Login</a>
+    </div>
+
+        {% endif %}
+    </div>
+</div>
+
+<div class="main">
+  <h2>
+      {% block pagetitle %}
+      {% endblock %}
+  </h2>
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event)
+{
+  if (!event.target.matches('.dropbtn'))
+  {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++)
+    {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show'))
+      {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropbtn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("backToTopBtn").style.display = "block";
+  } else {
+    document.getElementById("backToTopBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+// sidenav animation
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+
+
+</script>
+
+</body>
+
+</html>
